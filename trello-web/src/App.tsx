@@ -1,35 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import IconButton from '@mui/material/IconButton';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { useTheme } from '@mui/material/styles';
+import { useAppContext } from './hooks/useAppContext';
 import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const theme = useTheme();
+  const { toggleColorMode } = useAppContext();
+  
   return (
-    <>
-      <div>
-      <Button variant="contained">Hello world</Button>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Box>
+      <IconButton sx={{ ml: 1 }} onClick={toggleColorMode} color="inherit">
+        {theme.palette.mode} mode
+        {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+      </IconButton>
+      <Button>Hello Material</Button>
+    </Box>
   )
 }
 
