@@ -1,7 +1,7 @@
 import { ThemeProvider } from '@emotion/react';
-import { createTheme } from '@mui/material';
 import React, { ReactNode, useState } from 'react';
 import { ColorMode, getColorModeFromLocalStorage, saveColorMode } from './helper/colorMode';
+import getTheme from './theme';
 
 interface AppProviderProps {
     children: ReactNode;
@@ -19,11 +19,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
 
     const theme = React.useMemo(
         () =>
-          createTheme({
-            palette: {
-              mode,
-            },
-          }),
+          getTheme(mode),
         [mode],
       );
 

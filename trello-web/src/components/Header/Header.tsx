@@ -3,7 +3,9 @@ import ColorMode from '../ColorMode'
 
 function Header() {
   return (
-    <Box>
+    <Box sx={{
+      height: theme => theme.trello.headerBarHeight
+    }}>
       <ColorMode />
     </Box>
   )
