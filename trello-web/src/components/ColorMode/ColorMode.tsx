@@ -12,8 +12,7 @@ function ColorMode() {
 
   return (
     <Box>
-      <IconButton sx={{ ml: 1 }} onClick={toggleColorMode} color="inherit">
-        {theme.palette.mode} mode
+      <IconButton size='small' onClick={toggleColorMode} color="primary">
         {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
       </IconButton>
     </Box>

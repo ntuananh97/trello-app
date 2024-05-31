@@ -4,7 +4,7 @@ import Board from "./components/Board";
 import TrelloContainer from "./components/TrelloContainer";
 
 function App() {
-  return <Container maxWidth={false} disableGutters>
+  return <Container maxWidth={false} disableGutters sx={{height: '100vh'}}>
     <Header />
     <Board />
     <TrelloContainer />

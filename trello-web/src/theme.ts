@@ -6,6 +6,7 @@ declare module '@mui/material/styles' {
         trello: {
             headerBarHeight: string;
             boardBarHeight: string;
+            gapHeader: string;
         };
     }
 
@@ -13,13 +14,13 @@ declare module '@mui/material/styles' {
 
 const getDesignTokens = (mode: ColorMode) => ({
     trello: {
-        headerBarHeight: '48px',
-        boardBarHeight: '48px'
+        headerBarHeight: '58px',
+        boardBarHeight: '48px',
+        gapHeader: '10px'
     },
     palette: {
-      mode,
+      mode
     },
-   
   });
 
 const getTheme = (mode: ColorMode) => createTheme(getDesignTokens(mode));

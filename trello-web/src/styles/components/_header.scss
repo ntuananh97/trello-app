@@ -1,0 +1,33 @@
+.header {
+
+    &__logo {
+        background: #2E4F6B;
+        padding: 8px;
+        border-radius: 3px;
+
+        &-image {
+            position: relative;
+            width: 75px;
+            height: 16px;
+
+            &::before {
+                position: absolute;
+                content: "";
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+
+                background-image: url('/images/static_trelo_logo.gif');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                cursor: pointer;
+            }
+        }
+
+        &:hover .header__logo-image::before {
+            background-image: url('/images/dynamic_trello_logo.gif');
+        }
+    }
+}

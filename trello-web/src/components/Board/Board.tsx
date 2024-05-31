@@ -1,8 +1,13 @@
-import React from 'react'
+import Box from '@mui/material/Box'
+
 
 function Board() {
   return (
-    <div>Board</div>
+    <Box sx={{
+      height: theme => theme.trello.boardBarHeight
+    }}>
+      Board
+    </Box>
   )
 }
 
