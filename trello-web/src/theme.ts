@@ -16,7 +16,7 @@ const getDesignTokens = (mode: ColorMode) => ({
     trello: {
         headerBarHeight: '58px',
         boardBarHeight: '48px',
-        gapHeader: '15px'
+        gapHeader: '10px'
     },
     palette: {
       mode
