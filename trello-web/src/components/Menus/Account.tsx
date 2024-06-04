@@ -29,6 +29,7 @@ function Account() {
           aria-controls={open ? "account-menu" : undefined}
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
+          sx={{padding: 0}}
         >
           <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
         </IconButton>

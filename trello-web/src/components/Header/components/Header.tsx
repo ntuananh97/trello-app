@@ -4,17 +4,21 @@ import RightHeader from './RightHeader'
 
 function Header() {
   return (
-    <Box sx={{
-      height: theme => theme.trello.headerBarHeight,
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: '0 15px'
-    }}>
-      <LeftHeader />
-      <RightHeader />
-    </Box>
-  )
+    <header className='header'>
+      <Box
+        sx={{
+          height: (theme) => theme.trello.headerBarHeight,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+        className="header__container"
+      >
+        <LeftHeader />
+        <RightHeader />
+      </Box>
+    </header>
+  );
 }
 
 export default Header

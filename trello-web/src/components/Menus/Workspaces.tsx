@@ -1,4 +1,4 @@
-import Box from "@mui/material/Box";
+import Box, {BoxProps} from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -13,7 +13,12 @@ import Cloud from "@mui/icons-material/Cloud";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useState } from "react";
 
-function Workspaces() {
+interface ComponentProps  {
+}
+
+type WorkspacesProps = Partial<BoxProps> & ComponentProps
+
+const Workspaces: React.FC<WorkspacesProps> = ({...boxProps}) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -24,7 +29,7 @@ function Workspaces() {
   };
 
   return (
-    <Box>
+    <Box {...boxProps}>
       <Button
         aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
@@ -32,7 +37,7 @@ function Workspaces() {
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
       >
-        Workspace
+        Workspaces
       </Button>
       <Menu
         anchorEl={anchorEl}

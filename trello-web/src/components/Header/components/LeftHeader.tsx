@@ -1,9 +1,7 @@
-import { Box, Button } from '@mui/material'
+import { Box } from '@mui/material'
 import AppsIcon from '@mui/icons-material/Apps';
-import Workspaces from '../../Menus/Workspaces';
-import Recent from '../../Menus/Recent';
-import Starred from '../../Menus/Starred';
-import Templates from '../../Menus/Templates';
+import CreateHeaderButton from './CreateHeaderButton';
+import HeaderMenus from './HeaderMenus';
 
 
 function LeftHeader() {
@@ -12,16 +10,15 @@ function LeftHeader() {
         display: 'flex',
         alignItems: 'center',
         gap: theme => theme.trello.gapHeader
-    }}>
+    }}
+      className="header__left"
+    >
         <AppsIcon color='primary' />
         <a className='header__logo'>
           <div className='header__logo-image' />
         </a>
-        <Workspaces />
-        <Recent />
-        <Starred />
-        <Templates />
-        <Button variant="outlined">Create</Button>
+        <HeaderMenus />
+        <CreateHeaderButton />
     </Box>
   )
 }
