@@ -1,1 +1,1 @@
-export { default } from './TrelloContainer'
+export { default } from './components/TrelloContainer'
