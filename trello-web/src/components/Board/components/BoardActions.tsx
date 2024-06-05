@@ -5,25 +5,32 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import BoltIcon from '@mui/icons-material/Bolt';
 import AddToDriveIcon from '@mui/icons-material/AddToDrive';
 import PublicIcon from '@mui/icons-material/Public';
+import BoardMore from "../../Menus/BoardMore";
 
 function BoardActions() {
   return (
-    <Box>
-      <Button startIcon={<AppRegistrationIcon />}>
+    <Box sx={{
+      display: "flex",
+      alignItems: "center",
+      gap: '15px'
+    }}>
+      <Button startIcon={<AppRegistrationIcon />} sx={{display: {xs: 'none', sm: 'flex'}}}>
         Mern Stack
       </Button>
-      <Button startIcon={<PublicIcon />}>
+      <Button startIcon={<PublicIcon />} sx={{display: {xs: 'none', md: 'flex'}}}>
         Public/Private Workspaces
       </Button>
-      <Button startIcon={<AddToDriveIcon />}>
+      <Button startIcon={<AddToDriveIcon />} sx={{display: {xs: 'none', lg: 'flex'}}}>
         Add to Google Drive
       </Button>
-      <Button startIcon={<BoltIcon />}>
+      <Button startIcon={<BoltIcon />} sx={{display: {xs: 'none', lg: 'flex'}}}>
         Automation
       </Button>
-      <Button startIcon={<FilterAltIcon />}>
+      <Button startIcon={<FilterAltIcon />} sx={{display: {xs: 'none', lg: 'flex'}}}>
         Filter
       </Button>
+
+      <BoardMore sx={{display: {xs: 'flex', lg: 'none'}}} />
     </Box>
   );
 }

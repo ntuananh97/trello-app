@@ -6,16 +6,16 @@ import ListItemText from "@mui/material/ListItemText";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useState } from "react";
-import { MORE_HEADER_MENU } from "../../constants/header";
+import { MORE_BOARD_MENU } from "../../constants/board";
 
-type DisplayStyleType = (typeof MORE_HEADER_MENU)[number];
+type DisplayStyleType = (typeof MORE_BOARD_MENU)[number]['key'];
 
 interface ComponentProps  {
 }
 
-type HeaderMoreProps = Partial<BoxProps> & ComponentProps
+type BoardMoreProps = Partial<BoxProps> & ComponentProps
 
-const HeaderMore: React.FC<HeaderMoreProps> = ({...boxProps}) => {
+const BoardMore: React.FC<BoardMoreProps> = ({...boxProps}) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -27,14 +27,13 @@ const HeaderMore: React.FC<HeaderMoreProps> = ({...boxProps}) => {
 
   const renderDisplayStyle = (type: DisplayStyleType) => {
     switch (type) {
-      case 'Starred':
-      case 'Recent':
-        return {
-          display: {xs: 'flex', lg: 'none'} 
-        }
-      case 'Workspaces':
+      case 'workspace':
         return {
           display: {xs: 'flex', md: 'none'} 
+        }
+      case 'mern':
+        return {
+          display: {xs: 'flex', sm: 'none'} 
         }
     
       default:
@@ -54,8 +53,8 @@ const HeaderMore: React.FC<HeaderMoreProps> = ({...boxProps}) => {
         More
       </Button>
       <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
-        {MORE_HEADER_MENU.map((menu) => {
-          const displayStyle = renderDisplayStyle(menu)
+        {MORE_BOARD_MENU.map((menu) => {
+          const displayStyle = renderDisplayStyle(menu.key)
 
           return (
             <MenuItem
@@ -66,9 +65,9 @@ const HeaderMore: React.FC<HeaderMoreProps> = ({...boxProps}) => {
                 minWidth: 200,
                 ...displayStyle,
               }}
-              key={menu}
+              key={menu.key}
             >
-              <ListItemText>{menu}</ListItemText>
+              <ListItemText>{menu.name}</ListItemText>
               <ChevronRightIcon fontSize="small" />
             </MenuItem>
           )
@@ -78,4 +77,4 @@ const HeaderMore: React.FC<HeaderMoreProps> = ({...boxProps}) => {
   );
 }
 
-export default HeaderMore;
+export default BoardMore;

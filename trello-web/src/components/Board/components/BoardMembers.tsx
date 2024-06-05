@@ -6,7 +6,7 @@ import AvatarGroup from "@mui/material/AvatarGroup";
 
 function BoardMembers() {
   return (
-    <Box sx={{display: 'flex', alignItems: 'center'}}> 
+    <Box sx={{display: 'flex', alignItems: 'center', gap: '15px'}}> 
       <Button variant="outlined" startIcon={<PersonAddIcon />}>
         Invite
       </Button>
