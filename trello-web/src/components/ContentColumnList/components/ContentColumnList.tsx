@@ -3,8 +3,8 @@ import ContentColumnItem from "./ContentColumnItem";
 
 function ContentColumnList() {
   return (
-    <List>
-      {[...Array(10)].map(item => (<ContentColumnItem />))}
+    <List className="card-list">
+      {[...Array(10)].map((_, index) => (<ContentColumnItem key={index} />))}
     
     </List>
   );

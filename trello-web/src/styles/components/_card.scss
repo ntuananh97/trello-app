@@ -1,0 +1,26 @@
+.card-item {
+    &__image {
+        img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+        }
+    }
+
+    &__action {
+        position: absolute;
+        right: 3px;
+        z-index: 1;
+        background: #fff;
+        padding: 5px;
+        border-radius: 50%;
+
+        &:hover {
+            background: #fff;
+        }
+    }
+}
+
+.card-list {
+    padding: 0;
+}

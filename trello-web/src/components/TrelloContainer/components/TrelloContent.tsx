@@ -3,11 +3,16 @@ import ContentColumn from './ContentColumn'
 
 function TrelloContent() {
   return (
-    <Box className='trello-column__list' component="ul" sx={{display: 'flex', alignItems: 'center', gap: '20px'}}>
-      {[...Array(4)].map(item => (<ContentColumn />))}
-        
+    <Box
+      className="trello-column__list"
+      component="ul"
+      sx={{ display: "flex", gap: "20px", height: '100%' }}
+    >
+      {[...Array(6)].map((_, index) => (
+        <ContentColumn key={index} />
+      ))}
     </Box>
-  )
+  );
 }
 
 export default TrelloContent
