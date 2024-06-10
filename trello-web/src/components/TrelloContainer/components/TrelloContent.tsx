@@ -1,6 +1,9 @@
 import Box from '@mui/material/Box'
 import ContentColumn from './ContentColumn'
 import AddContentColumn from './AddContentColumn';
+import { MOCK_DATA } from '../../../mockData/mock-data';
+
+const { columns: COLUMNS } = MOCK_DATA.board
 
 function TrelloContent() {
   return (
@@ -9,8 +12,8 @@ function TrelloContent() {
       component="ul"
       sx={{ display: "flex", gap: "20px", height: '100%' }}
     >
-      {[...Array(2)].map((_, index) => (
-        <ContentColumn key={index} />
+      {COLUMNS.map((column) => (
+        <ContentColumn key={column._id} data={column} />
       ))}
       <AddContentColumn />
     </Box>
