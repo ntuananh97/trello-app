@@ -1,9 +1,22 @@
+@use "../ultis/mixin" as *;
+
 .card-item {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow:  0px 1px 1px #091e4240, 0px 0px 1px #091e424f;
+
+    &:not(:last-child) {
+        margin-bottom: 8px;
+    }
+
     &__image {
+        max-height: 300px;
+        line-height: 0;
+
         img {
             width: 100%;
-            max-height: 300px;
             object-fit: cover;
+            height: 100%;
         }
     }
 
@@ -14,6 +27,13 @@
         background: #fff;
         padding: 5px;
         border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &.has-image {
+            top: 3px;
+            transform: unset;
+        }
 
         &:hover {
             background: #fff;
@@ -22,5 +42,9 @@
 }
 
 .card-list {
-    padding: 0;
+    padding: 10px 8px;
+    flex: 1 1 auto; /* grow and shrink as needed */
+    overflow-y: auto;
+
+    @include style-scroll-bar(#E3E5EA, #C4C9D2)
 }

@@ -4,21 +4,24 @@ import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import clsx from "clsx";
 
-const IS_IMAGE = false;
+const IS_IMAGE = true;
 
 function ContentColumnItem() {
   return (
-    <ListItem disablePadding className="card-item"
+    <ListItem
+      disablePadding
+      className="card-item"
       sx={{
-        padding: "10px 15px",
         position: "relative",
+        background: "#fff",
       }}
     >
       <ListItemButton
         sx={{
           display: "block",
-          padding: 0
+          padding: 0,
         }}
       >
         {IS_IMAGE && (
@@ -30,15 +33,16 @@ function ContentColumnItem() {
           </Box>
         )}
 
-        <Typography>Here is the card's title</Typography>
+        <Box sx={{ padding: "8px 12px 4px" }}>
+          <Typography>Here is the card's title</Typography>
 
-        <IconButton
-          size="small"
-          className="card-item__action"
-          sx={{top: IS_IMAGE ? 3 : -3}}
-        >
-          <ModeEditIcon sx={{ width: 18, height: 18 }} />
-        </IconButton>
+          <IconButton
+            size="small"
+            className={clsx("card-item__action", { "has-image": IS_IMAGE })}
+          >
+            <ModeEditIcon sx={{ width: 18, height: 18 }} />
+          </IconButton>
+        </Box>
       </ListItemButton>
     </ListItem>
   );

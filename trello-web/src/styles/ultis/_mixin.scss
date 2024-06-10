@@ -1,0 +1,23 @@
+@mixin style-scroll-bar($track-color, $thumb-color) {
+    &::-webkit-scrollbar {
+        width: 6px;
+      }
+    
+      &::-webkit-scrollbar-track {
+        background: $track-color;
+      }
+    
+      &::-webkit-scrollbar-thumb {
+        background: $thumb-color;
+        border-radius: 5px;
+      }
+    
+      &::-webkit-scrollbar-thumb:hover {
+        background: $thumb-color;
+      }
+    
+      // Fire fox
+      // on firefox, we only set scrollbar width and scrollbar color
+      scrollbar-width: thin;
+      scrollbar-color: $thumb-color $track-color;
+  }

@@ -1,7 +1,7 @@
 
 function TrelloContentFooter() {
   return (
-    <div>TrelloContentFooter</div>
+    <div className="trello-column__item__footer">TrelloContentFooter</div>
   )
 }
 
