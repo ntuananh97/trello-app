@@ -11,9 +11,7 @@ function ContentColumn() {
         elevation={3}
         sx={{
           padding: "15px 0",
-          width: 273,
           maxHeight: "100%",
-          background: "#F1F2F4",
         }}
         className="trello-column__item__container"
       >

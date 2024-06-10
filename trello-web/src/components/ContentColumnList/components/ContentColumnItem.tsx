@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import clsx from "clsx";
 
-const IS_IMAGE = true;
+const IS_IMAGE = false;
 
 function ContentColumnItem() {
   return (

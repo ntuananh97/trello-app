@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box'
 import ContentColumn from './ContentColumn'
+import AddContentColumn from './AddContentColumn';
 
 function TrelloContent() {
   return (
@@ -8,9 +9,10 @@ function TrelloContent() {
       component="ul"
       sx={{ display: "flex", gap: "20px", height: '100%' }}
     >
-      {[...Array(6)].map((_, index) => (
+      {[...Array(2)].map((_, index) => (
         <ContentColumn key={index} />
       ))}
+      <AddContentColumn />
     </Box>
   );
 }

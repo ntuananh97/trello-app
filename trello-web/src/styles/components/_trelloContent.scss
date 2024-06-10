@@ -8,9 +8,12 @@
     }
 
     &__item {
+        width: 273px;
+
         &__container {
             display: flex;
             flex-direction: column;
+            background: #F1F2F4;
         }
 
         &__header, &__footer {
