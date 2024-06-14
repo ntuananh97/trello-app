@@ -1,32 +1,51 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { fetchExampleData } from './trelloContentServices';
+import { IStateCardData, IStateColumnData } from '../../models/store';
 
 interface TrelloContentState {
-  value: number;
+  columnOrderIds: string[]
+  columnData: IStateColumnData,
+  cardData: IStateCardData
 }
 
 const initialState: TrelloContentState = {
-  value: 0,
+  columnOrderIds: [],
+  columnData: {},
+  cardData: {}
 };
 
 const trelloContentSlice = createSlice({
   name: 'trello-content',
   initialState,
   reducers: {
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
-    },
+ 
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchExampleData.fulfilled, (state, action) => {
-        console.log(".addCase ~ action:", action)
-        // Assuming the data returned is a number for this example
-        state.value = action.payload;
+        const boardData = action.payload.data.board;
+
+        const {columnOrderIds, columns} = boardData;
+        state.columnOrderIds = columnOrderIds;
+
+        const columnDataObject: IStateColumnData = {};
+        const cardDataObject: IStateCardData = {};
+
+        columns.forEach(clm => {
+          columnDataObject[clm._id] = clm;
+
+          clm.cards.forEach(card => {
+            cardDataObject[card._id] = card
+          })
+        })
+        state.columnData = columnDataObject;
+        state.cardData = cardDataObject;
+        
+        console.log(".addCase ~ data:", columnOrderIds, columns)
       })
   },
 });
 
-export const { incrementByAmount } = trelloContentSlice.actions;
+export const {} = trelloContentSlice.actions;
 
 export default trelloContentSlice.reducer;

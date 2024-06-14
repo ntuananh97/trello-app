@@ -5,10 +5,17 @@ import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import clsx from "clsx";
+import { useGetCardDetailById } from "../../../hooks/useTrelloContent";
 
-const IS_IMAGE = false;
+interface ContentColumnItemProps {
+  cardId: string
+}
 
-function ContentColumnItem() {
+const ContentColumnItem: React.FC<ContentColumnItemProps> = ({cardId}) => {
+
+  const {title, cover} = useGetCardDetailById(cardId);
+  const hasImage = !!cover
+
   return (
     <ListItem
       disablePadding
@@ -24,21 +31,21 @@ function ContentColumnItem() {
           padding: 0,
         }}
       >
-        {IS_IMAGE && (
+        {hasImage && (
           <Box className="card-item__image">
             <img
-              src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=500&h=400&fit=crop&auto=format"
-              alt="card image"
+              src={cover}
+              alt={title}
             />
           </Box>
         )}
 
         <Box sx={{ padding: "8px 12px 4px" }}>
-          <Typography>Here is the card's title</Typography>
+          <Typography>{title}</Typography>
 
           <IconButton
             size="small"
-            className={clsx("card-item__action", { "has-image": IS_IMAGE })}
+            className={clsx("card-item__action", { "has-image": hasImage })}
           >
             <ModeEditIcon sx={{ width: 18, height: 18 }} />
           </IconButton>

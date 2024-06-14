@@ -31,6 +31,7 @@ function AddContentColumn() {
   };
 
   const handleCreateNewColumn = () => {
+    if (!cardTitle.trim()) return;
     console.log('cardTitle', cardTitle);
     
   };

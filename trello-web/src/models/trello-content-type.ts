@@ -14,3 +14,19 @@ export interface IColumnData {
     cardOrderIds: string[];
     cards: ICardData[];
 }
+
+export interface IBoardData {
+    _id: string;
+    title: string;
+    description: string;
+    columnOrderIds: string[];
+    columns: IColumnData[];
+}
+
+
+export interface IResponseData {
+    data: {
+        board: IBoardData
+    }
+}
+

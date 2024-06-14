@@ -1,12 +1,9 @@
 const MOCK_DATA = {
   board: {
     _id: "board-id-01",
-    title: "TrungQuanDev MERN Stack Board",
-    description: "Pro MERN stack Course",
-    type: "public", // 'private'
-    ownerIds: [], // Những users là Admin của board
-    memberIds: [], // Những users là member bình thường của board
-    columnOrderIds: ["column-id-01", "column-id-02", "column-id-03"], // Thứ tự sắp xếp / vị trí của các Columns trong 1 boards
+    title: "Test",
+    description: "Test",
+    columnOrderIds: ["column-id-01", "column-id-02", "column-id-03"],
     columns: [
       {
         _id: "column-id-01",
@@ -27,16 +24,9 @@ const MOCK_DATA = {
             boardId: "board-id-01",
             columnId: "column-id-01",
             title: "Title of card 01",
-            description: "Markdown Syntax (sẽ ở khóa nâng cao nhé)",
+            description: "Test",
             cover:
-              "https://trungquandev.com/wp-content/uploads/2022/07/fair-mern-stack-advanced-banner-trungquandev.jpg",
-            memberIds: ["test-user-id-01"],
-            comments: ["test comment 01", "test comment 02"],
-            attachments: [
-              "test attachment 01",
-              "test attachment 02",
-              "test attachment 03",
-            ],
+              "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=500&h=400&fit=crop&auto=format",
           },
           {
             _id: "card-id-02",
@@ -45,9 +35,7 @@ const MOCK_DATA = {
             title: "Title of card 02",
             description: null,
             cover: null,
-            memberIds: [],
-            comments: [],
-            attachments: [],
+      
           },
           {
             _id: "card-id-03",
@@ -56,9 +44,7 @@ const MOCK_DATA = {
             title: "Title of card 03",
             description: null,
             cover: null,
-            memberIds: [],
-            comments: [],
-            attachments: [],
+     
           },
           {
             _id: "card-id-04",
@@ -67,9 +53,7 @@ const MOCK_DATA = {
             title: "Title of card 04",
             description: null,
             cover: null,
-            memberIds: [],
-            comments: [],
-            attachments: [],
+      
           },
           {
             _id: "card-id-05",
@@ -78,9 +62,7 @@ const MOCK_DATA = {
             title: "Title of card 05",
             description: null,
             cover: null,
-            memberIds: [],
-            comments: [],
-            attachments: [],
+      
           },
           {
             _id: "card-id-06",
@@ -89,9 +71,7 @@ const MOCK_DATA = {
             title: "Title of card 06",
             description: null,
             cover: null,
-            memberIds: [],
-            comments: [],
-            attachments: [],
+  
           },
           {
             _id: "card-id-07",
@@ -100,9 +80,7 @@ const MOCK_DATA = {
             title: "Title of card 07",
             description: null,
             cover: null,
-            memberIds: [],
-            comments: [],
-            attachments: [],
+    
           },
         ],
       },
@@ -119,9 +97,7 @@ const MOCK_DATA = {
             title: "Title of card 08",
             description: null,
             cover: null,
-            memberIds: [],
-            comments: [],
-            attachments: [],
+        
           },
           {
             _id: "card-id-09",
@@ -130,9 +106,7 @@ const MOCK_DATA = {
             title: "Title of card 09",
             description: null,
             cover: null,
-            memberIds: [],
-            comments: [],
-            attachments: [],
+  
           },
           {
             _id: "card-id-10",
@@ -141,9 +115,7 @@ const MOCK_DATA = {
             title: "Title of card 10",
             description: null,
             cover: null,
-            memberIds: [],
-            comments: [],
-            attachments: [],
+   
           },
         ],
       },
@@ -160,9 +132,7 @@ const MOCK_DATA = {
             title: "Title of card 11",
             description: null,
             cover: null,
-            memberIds: [],
-            comments: [],
-            attachments: [],
+         
           },
           {
             _id: "card-id-12",
@@ -171,9 +141,7 @@ const MOCK_DATA = {
             title: "Title of card 12",
             description: null,
             cover: null,
-            memberIds: [],
-            comments: [],
-            attachments: [],
+       
           },
           {
             _id: "card-id-13",
@@ -182,9 +150,7 @@ const MOCK_DATA = {
             title: "Title of card 13",
             description: null,
             cover: null,
-            memberIds: [],
-            comments: [],
-            attachments: [],
+         
           },
         ],
       },

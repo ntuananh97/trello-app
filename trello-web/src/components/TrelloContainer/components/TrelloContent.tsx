@@ -1,19 +1,22 @@
 import Box from '@mui/material/Box'
 import ContentColumn from './ContentColumn'
 import AddContentColumn from './AddContentColumn';
-import { MOCK_DATA } from '../../../mockData/mock-data';
+import { useSelector } from 'react-redux';
+import { columnOrderIdSelector } from '../../../redux/trelloContent/trelloContentSelector';
 
-const { columns: COLUMNS } = MOCK_DATA.board
 
 function TrelloContent() {
+  const columnOrderIds = useSelector(columnOrderIdSelector);
+  console.log("TrelloContent ~ columnOrderIds:", columnOrderIds)
+
   return (
     <Box
       className="trello-column__list"
       component="ul"
       sx={{ display: "flex", gap: "20px", height: '100%' }}
     >
-      {COLUMNS.map((column) => (
-        <ContentColumn key={column._id} data={column} />
+      {columnOrderIds.map((columnId) => (
+        <ContentColumn key={columnId} columnId={columnId} />
       ))}
       <AddContentColumn />
     </Box>

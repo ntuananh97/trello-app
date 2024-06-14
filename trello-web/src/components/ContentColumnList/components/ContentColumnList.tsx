@@ -1,10 +1,18 @@
 import List from "@mui/material/List";
 import ContentColumnItem from "./ContentColumnItem";
+import { useGetColumnDetailById } from "../../../hooks/useTrelloContent";
 
-function ContentColumnList() {
+interface ContentColumnListProps {
+  columnId: string
+}
+
+const ContentColumnList: React.FC<ContentColumnListProps> = ({columnId}) => {
+  const columnData = useGetColumnDetailById(columnId);
+  const { cardOrderIds } = columnData
+
   return (
     <List className="card-list">
-      {[...Array(10)].map((_, index) => (<ContentColumnItem key={index} />))}
+      {cardOrderIds.map((cardId) => (<ContentColumnItem key={cardId} cardId={cardId} />))}
     
     </List>
   );

@@ -3,16 +3,18 @@ import Paper from "@mui/material/Paper";
 import ContentColumnList from "../../ContentColumnList";
 import TrelloContentFooter from "./TrelloContentFooter";
 import ContentColumnHeader from "./ContentColumnHeader";
-import { IColumnData } from "../../../models/trello-content-type";
+import { useGetColumnDetailById } from '../../../hooks/useTrelloContent';
 
 
 
 interface ContentColumnProps {
-  data: IColumnData
+  columnId: string
 }
 
-const ContentColumn: React.FC<ContentColumnProps> = ({data}) => {
-  console.log("data:", data)
+const ContentColumn: React.FC<ContentColumnProps> = ({columnId}) => {
+  const columnData = useGetColumnDetailById(columnId);
+
+  console.log("columnId:", columnData)
   return (
     <Box className="trello-column__item" component="li" sx={{ maxHeight: "100%" }}>
       <Paper
@@ -23,8 +25,8 @@ const ContentColumn: React.FC<ContentColumnProps> = ({data}) => {
         }}
         className="trello-column__item__container"
       >
-        <ContentColumnHeader />
-        <ContentColumnList />
+        <ContentColumnHeader title={columnData.title}  />
+        <ContentColumnList columnId={columnId} />
         <TrelloContentFooter />
       </Paper>
     </Box>
