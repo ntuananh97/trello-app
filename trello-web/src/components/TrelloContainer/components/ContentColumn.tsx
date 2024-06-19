@@ -4,8 +4,8 @@ import ContentColumnList from "../../ContentColumnList";
 import TrelloContentFooter from "./TrelloContentFooter";
 import ContentColumnHeader from "./ContentColumnHeader";
 import { useGetColumnDetailById } from '../../../hooks/useTrelloContent';
-
-
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 interface ContentColumnProps {
   columnId: string
@@ -14,9 +14,29 @@ interface ContentColumnProps {
 const ContentColumn: React.FC<ContentColumnProps> = ({columnId}) => {
   const columnData = useGetColumnDetailById(columnId);
 
-  console.log("columnId:", columnData)
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+  } = useSortable({id: columnId});
+
+  const dndKitColumnStyles = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
+
   return (
-    <Box className="trello-column__item" component="li" sx={{ maxHeight: "100%" }}>
+    <Box
+      className="trello-column__item"
+      component="li"
+      sx={{ maxHeight: "100%" }}
+      ref={setNodeRef}
+      style={dndKitColumnStyles}
+      {...attributes}
+      {...listeners}
+    >
       <Paper
         elevation={3}
         sx={{
@@ -25,7 +45,7 @@ const ContentColumn: React.FC<ContentColumnProps> = ({columnId}) => {
         }}
         className="trello-column__item__container"
       >
-        <ContentColumnHeader title={columnData.title}  />
+        <ContentColumnHeader title={columnData.title} />
         <ContentColumnList columnId={columnId} />
         <TrelloContentFooter />
       </Paper>
